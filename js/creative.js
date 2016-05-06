@@ -44,5 +44,41 @@
 
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
+	
+	// Initialize jVector Map
+	var gdpData = {
+	  "CR": 2,
+	  "UA": 2,
+	};
+	
+	$('#world-map').vectorMap({
+	  map: 'world_mill',
+	  backgroundColor: '#f05f40',
+	  series: {
+		regions: [{
+		  values: gdpData,
+		  scale: ['#C8EEFF', '#383A3F'],
+		  normalizeFunction: 'polynomial'
+		}]
+	  },
+	});
+	
+	// Initialize CountUp
+	var options = {
+		useEasing : false, 
+		useGrouping : true, 
+		separator : ',', 
+		decimal : '.', 
+		prefix : '', 
+		suffix : '' 
+		};
+	var employeeCount = new CountUp("employeeCount", 0, 140, 0, 1.5, options);
+	var clothingCount = new CountUp("clothingCount", 0, 8, 0, 1, options);
+	var tonCount = new CountUp("tonCount", 0, 280, 0, 1.6, options);
+	var yearCount = new CountUp("yearCount", 0, 20, 0, 1.25, options);
+	employeeCount.start();
+	clothingCount.start();
+	tonCount.start();
+	yearCount.start();
 
 })(jQuery); // End of use strict
